@@ -1,0 +1,57 @@
+#
+#  ██████████████████████████████████████████████████████████████████████████████████████████
+#  █▄─▄▄▀█▄─▄▄─█─▄▄▄▄█─▄▄─█▄─██─▄█▄─▄▄▀█─▄▄▄─█▄─▄▄─███─█─█─▄▄─█▄─▄███▄─▄▄▀█▄─▄▄─█▄─▄▄▀█─▄▄▄▄█
+#  ██─▄─▄██─▄█▀█▄▄▄▄─█─██─██─██─███─▄─▄█─███▀██─▄█▀███─▄─█─██─██─██▀██─██─██─▄█▀██─▄─▄█▄▄▄▄─█
+#  █▄▄█▄▄█▄▄▄▄▄█▄▄▄▄▄█▄▄▄▄██▄▄▄▄██▄▄█▄▄█▄▄▄▄▄█▄▄▄▄▄███▄█▄█▄▄▄▄█▄▄▄▄▄█▄▄▄▄██▄▄▄▄▄█▄▄█▄▄█▄▄▄▄▄█
+#
+# Created by JustJustin
+# version: 1.0.0-SNAPSHOT
+# To modify commands configuration section, you need to restart the server to apply changes!
+#
+resource-pack:
+  custom-commands:
+    # Toggle this option
+    enabled: true
+    # Command List
+    commands:
+      - "rp"
+      - "resource"
+      - "resourcepack"
+      - "download"
+      - "descargar"
+  # Resource Pack URL
+  url: "here the url"
+  # More modifications (Extras for newest versions of minecraft)
+  include-hash:
+    # Disabled by default to support 1.8+
+    enabled: false
+    # Hash Value
+    hash: "nothing here for now"
+  # Install resource pack conditions
+  install-conditions:
+    protocol:
+      # Toggle this option
+      enabled: true
+      # This will be the min protocol to allow the download of the resource pack
+      # Disable it with -1
+      min: 477
+      # This will be the max protocol to allow the download of the resource pack
+      # Disable ti with -1
+      max: -1
+    permission:
+      # Toggle this option
+      enabled: false
+      # The current permission to install the resource pack
+      value: "resourceholder.install"
+
+messages:
+  # toggle messages
+  toggle: true
+  # This message will be displayed to the player when is downloading the resource pack
+  downloading: "<nl>&a&lDownloading resource pack<nl>"
+  # This message will be displayed to the player when the resource pack is downloaded
+  successfully-downloaded: "<nl>&a&lThe resource pack has been installed correctly!<nl>"
+  # This message will be displayed if the payer doesn't accept the resource pack
+  declined: "<nl>&c&lYou don't installed the resource pack, if you want install the resource pack use: &b&l/download<nl>"
+  # This message will be displayed if the player failed the download of the resource pack
+  failed: "<nl>&c&lCan't download the resource pack, if you want try again use: &f&l/download<nl>"

@@ -1,0 +1,8 @@
+name: ResourceHolders
+version: '${project.version}'
+main: dev.mruniverse.resourceholders.ResourceHolders
+api-version: 1.13
+authors: [ JustJustin ]
+depend:
+  - PlaceholderAPI
+  - ProtocolLib

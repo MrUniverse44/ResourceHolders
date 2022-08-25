@@ -1,0 +1,8 @@
+# Here you can edit your placeholders
+# The 'value' path will be showed in your placeholder when the player has installed the resource pack
+# And the conditions are completed by the user, and the 'negative' will be showed if the player doesn't have
+# Installed the resource pack or conditions aren't completed by the user
+placeholders:
+  first:
+    value: "Placeholders are installed"
+    negative: "Placeholders are not installed"
