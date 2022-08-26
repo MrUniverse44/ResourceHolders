@@ -5,6 +5,7 @@ import dev.mruniverse.resourceholders.command.RPCommand;
 import dev.mruniverse.resourceholders.source.ResourcePack;
 import dev.mruniverse.resourceholders.source.listener.PlaceholderListeners;
 import dev.mruniverse.resourceholders.source.storage.PluginPlayer;
+import dev.mruniverse.slimelib.SlimePlatform;
 import dev.mruniverse.slimelib.SlimePlugin;
 import dev.mruniverse.slimelib.SlimePluginInformation;
 import dev.mruniverse.slimelib.file.input.InputManager;
@@ -87,6 +88,11 @@ public class ResourceHolders extends JavaPlugin implements SlimePlugin<JavaPlugi
     @Override
     public SlimeLogs getLogs() {
         return logs;
+    }
+
+    @Override
+    public SlimePlatform getServerType() {
+        return SlimePlatform.SPIGOT;
     }
 
     public ResourcePack getResourcePack() {
