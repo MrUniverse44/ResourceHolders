@@ -9,8 +9,6 @@ import dev.mruniverse.slimelib.commands.sender.player.SlimePlayer;
 import dev.mruniverse.slimelib.file.configuration.ConfigurationHandler;
 import org.bukkit.entity.Player;
 
-import javax.xml.bind.DatatypeConverter;
-
 public class ResourcePack {
 
     private final ResourcePackStorage storage;
@@ -44,9 +42,7 @@ public class ResourcePack {
 
         PERMISSION = settings.getString("resource-pack.install-conditions.permission.value", "resourceholder.install");
 
-        BYTES = DatatypeConverter.parseHexBinary(
-                settings.getString("resource-pack.include-hash.hash", "nothing here for now")
-        );
+        BYTES = settings.getString("resource-pack.include-hash.hash", "nothing here for now").getBytes();
 
         URL = settings.getString("resource-pack.url", "here the url");
     }
@@ -68,21 +64,20 @@ public class ResourcePack {
             if (MIN_PROTOCOL != -1) {
                 if (MAX_PROTOCOL != -1) {
                     if (protocol >= MIN_PROTOCOL && protocol <= MAX_PROTOCOL) {
-                        player.setResourcePack(URL);
+                        send(player);
                     }
                 } else {
                     if (protocol >= MIN_PROTOCOL) {
-                        player.setResourcePack(URL);
+                        send(player);
                     }
                 }
             } else {
                 if (MAX_PROTOCOL != -1) {
                     if (protocol <= MAX_PROTOCOL) {
-                        player.setResourcePack(URL);
+                        send(player);
                     }
                 } else {
                     send(player);
-                    player.setResourcePack(URL);
                 }
             }
         }

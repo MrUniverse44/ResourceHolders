@@ -87,6 +87,7 @@
             <groupId>com.github.MrUniverse44</groupId>
             <artifactId>SlimeLib</artifactId>
             <version>1.0.6</version>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>

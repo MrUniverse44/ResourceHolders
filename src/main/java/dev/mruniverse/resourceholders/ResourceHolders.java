@@ -2,17 +2,19 @@ package dev.mruniverse.resourceholders;
 
 import dev.mruniverse.resourceholders.bstats.Metrics;
 import dev.mruniverse.resourceholders.command.RPCommand;
+import dev.mruniverse.resourceholders.loader.PluginLoader;
 import dev.mruniverse.resourceholders.source.ResourcePack;
 import dev.mruniverse.resourceholders.source.listener.PlaceholderListeners;
 import dev.mruniverse.resourceholders.source.storage.PluginPlayer;
+
 import dev.mruniverse.slimelib.SlimePlatform;
 import dev.mruniverse.slimelib.SlimePlugin;
 import dev.mruniverse.slimelib.SlimePluginInformation;
-import dev.mruniverse.slimelib.file.input.spigot.SpigotInputManager;
+import dev.mruniverse.slimelib.file.input.DefaultInputManager;
 import dev.mruniverse.slimelib.loader.BaseSlimeLoader;
-import dev.mruniverse.slimelib.loader.DefaultSlimeLoader;
 import dev.mruniverse.slimelib.logs.SlimeLogger;
 import dev.mruniverse.slimelib.logs.SlimeLogs;
+
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -31,26 +33,29 @@ public class ResourceHolders extends JavaPlugin implements SlimePlugin<JavaPlugi
 
     @Override
     public void onEnable() {
-        information = new SlimePluginInformation(
+
+        this.information = new SlimePluginInformation(
                 getServerType(),
                 this
         );
-        loader = new DefaultSlimeLoader<>(
+
+        this.logs = SlimeLogger.createLogs(
+                getServerType(),
+                this
+        );
+
+        this.logs.getProperties().getPrefixes().changeMainText("ResourceHolders");
+
+        this.loader = new PluginLoader(
                 this,
-                new SpigotInputManager(this)
-        );
-        logs = SlimeLogger.createLogs(
-                getServerType(),
-                this
+                new DefaultInputManager()
         );
 
-        logs.getProperties().getPrefixes().changeMainText("ResourceHolders");
+        this.loader.setFiles(SlimeFile.class);
 
-        loader.setFiles(SlimeFile.class);
+        this.loader.init();
 
-        loader.init();
-
-        resourcePack = new ResourcePack(this);
+        this.resourcePack = new ResourcePack(this);
 
         if (getConfigurationHandler(SlimeFile.RESOURCE_PACK).getStatus("resource-pack.custom-commands.enabled", true)) {
             for (String command : getConfigurationHandler(SlimeFile.RESOURCE_PACK).getStringList("resource-pack.custom-commands.commands")) {
@@ -60,9 +65,9 @@ public class ResourceHolders extends JavaPlugin implements SlimePlugin<JavaPlugi
             }
         }
 
-        listener = new PlaceholderListeners(this);
+        this.listener = new PlaceholderListeners(this);
 
-        listener.register();
+        this.listener.register();
 
         new Metrics(this, 16274);
     }
