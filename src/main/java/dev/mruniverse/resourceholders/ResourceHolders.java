@@ -2,7 +2,6 @@ package dev.mruniverse.resourceholders;
 
 import dev.mruniverse.resourceholders.bstats.Metrics;
 import dev.mruniverse.resourceholders.command.RPCommand;
-import dev.mruniverse.resourceholders.loader.PluginLoader;
 import dev.mruniverse.resourceholders.source.ResourcePack;
 import dev.mruniverse.resourceholders.source.listener.PlaceholderListeners;
 import dev.mruniverse.resourceholders.source.storage.PluginPlayer;
@@ -10,8 +9,8 @@ import dev.mruniverse.resourceholders.source.storage.PluginPlayer;
 import dev.mruniverse.slimelib.SlimePlatform;
 import dev.mruniverse.slimelib.SlimePlugin;
 import dev.mruniverse.slimelib.SlimePluginInformation;
-import dev.mruniverse.slimelib.file.input.DefaultInputManager;
 import dev.mruniverse.slimelib.loader.BaseSlimeLoader;
+import dev.mruniverse.slimelib.loader.DefaultSlimeLoader;
 import dev.mruniverse.slimelib.logs.SlimeLogger;
 import dev.mruniverse.slimelib.logs.SlimeLogs;
 
@@ -46,9 +45,8 @@ public class ResourceHolders extends JavaPlugin implements SlimePlugin<JavaPlugi
 
         this.logs.getProperties().getPrefixes().changeMainText("ResourceHolders");
 
-        this.loader = new PluginLoader(
-                this,
-                new DefaultInputManager()
+        this.loader = new DefaultSlimeLoader<>(
+                this
         );
 
         this.loader.setFiles(SlimeFile.class);
