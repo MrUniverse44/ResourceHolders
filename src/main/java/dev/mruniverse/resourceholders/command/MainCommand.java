@@ -3,7 +3,7 @@ package dev.mruniverse.resourceholders.command;
 import dev.mruniverse.resourceholders.ResourceHolders;
 import dev.mruniverse.slimelib.commands.command.Command;
 import dev.mruniverse.slimelib.commands.command.SlimeCommand;
-import dev.mruniverse.slimelib.commands.sender.Sender;
+import dev.mruniverse.slimelib.source.SlimeSource;
 
 @Command(
         description = "Main Command of the plugin",
@@ -23,7 +23,7 @@ public class MainCommand implements SlimeCommand {
     }
 
     @Override
-    public void execute(Sender sender, String commandLabel, String[] args) {
+    public void execute(SlimeSource sender, String commandLabel, String[] args) {
         if (!sender.hasPermission("resourceholders.admin")) {
             return;
         }

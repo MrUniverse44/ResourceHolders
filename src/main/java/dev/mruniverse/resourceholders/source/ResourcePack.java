@@ -4,9 +4,9 @@ import com.comphenix.protocol.ProtocolLibrary;
 import dev.mruniverse.resourceholders.ResourceHolders;
 import dev.mruniverse.resourceholders.SlimeFile;
 import dev.mruniverse.resourceholders.source.storage.ResourcePackStorage;
-import dev.mruniverse.slimelib.commands.sender.Sender;
-import dev.mruniverse.slimelib.commands.sender.player.SlimePlayer;
 import dev.mruniverse.slimelib.file.configuration.ConfigurationHandler;
+import dev.mruniverse.slimelib.source.SlimeSource;
+import dev.mruniverse.slimelib.source.player.SlimePlayer;
 import org.bukkit.entity.Player;
 
 public class ResourcePack {
@@ -91,8 +91,8 @@ public class ResourcePack {
         }
     }
 
-    public void verify(Sender sender) {
-        if (sender.isPlayer() && sender instanceof SlimePlayer) {
+    public void verify(SlimeSource<?> sender) {
+        if (sender.isPlayer()) {
             verify(
                     ((SlimePlayer)sender).get()
             );
