@@ -33,6 +33,8 @@ public class ResourcePack {
     public void update() {
         ConfigurationHandler settings = plugin.getConfigurationHandler(SlimeFile.RESOURCE_PACK);
 
+        storage.update(settings);
+
         PERMISSION_OPTION = settings.getStatus("resource-pack.install-conditions.permission.enabled", false);
         PROTOCOL_OPTION = settings.getStatus("resource-pack.install-conditions.protocol.enabled", true);
         INCLUDE_HASH = settings.getStatus("resource-pack.include-hash.enabled", false);

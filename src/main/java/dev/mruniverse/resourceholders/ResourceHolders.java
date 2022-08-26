@@ -1,7 +1,9 @@
 package dev.mruniverse.resourceholders;
 
+import dev.mruniverse.resourceholders.bstats.Metrics;
 import dev.mruniverse.resourceholders.command.RPCommand;
 import dev.mruniverse.resourceholders.source.ResourcePack;
+import dev.mruniverse.resourceholders.source.listener.PlaceholderListeners;
 import dev.mruniverse.resourceholders.source.storage.PluginPlayer;
 import dev.mruniverse.slimelib.SlimePlugin;
 import dev.mruniverse.slimelib.SlimePluginInformation;
@@ -22,6 +24,7 @@ public class ResourceHolders extends JavaPlugin implements SlimePlugin<JavaPlugi
     private final Map<UUID, PluginPlayer> playerMap = new ConcurrentHashMap<>();
     private BaseSlimeLoader<JavaPlugin> loader;
     private SlimePluginInformation information;
+    private PlaceholderListeners listener;
     private ResourcePack resourcePack;
     private SlimeLogs logs;
 
@@ -55,6 +58,12 @@ public class ResourceHolders extends JavaPlugin implements SlimePlugin<JavaPlugi
                 );
             }
         }
+
+        listener = new PlaceholderListeners(this);
+
+        listener.register();
+
+        new Metrics(this, 16274);
     }
 
     public PluginPlayer getPlayer(Player player) {
@@ -92,7 +101,9 @@ public class ResourceHolders extends JavaPlugin implements SlimePlugin<JavaPlugi
     @Override
     public void reload() {
         loader.reload();
+
         resourcePack.update();
-        resourcePack.getStorage().update();
+
+        listener.update();
     }
 }

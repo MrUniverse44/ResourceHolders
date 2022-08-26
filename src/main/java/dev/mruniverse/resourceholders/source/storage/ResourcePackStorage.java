@@ -22,7 +22,9 @@ public class ResourcePackStorage {
     public ResourcePackStorage(ResourceHolders plugin) {
         this.plugin = plugin;
 
-        load();
+        load(
+                plugin.getConfigurationHandler(SlimeFile.RESOURCE_PACK)
+        );
 
         ResourcePackListener listener = new ResourcePackListener(plugin);
 
@@ -30,10 +32,7 @@ public class ResourcePackStorage {
 
     }
 
-    private void load() {
-
-        ConfigurationHandler settings = plugin.getConfigurationHandler(SlimeFile.RESOURCE_PACK);
-
+    private void load(ConfigurationHandler settings) {
         hasMessages = settings.getBoolean("messages.toggle");
 
         plugin.getLogs().info("Resource Pack system now is enabled");
@@ -55,8 +54,8 @@ public class ResourcePackStorage {
         ).split("<nl>");
     }
 
-    public void update() {
-        load();
+    public void update(ConfigurationHandler configuration) {
+        load(configuration);
     }
 
     public boolean hasMessages() {
