@@ -1,6 +1,7 @@
 package dev.mruniverse.resourceholders;
 
 import dev.mruniverse.resourceholders.bstats.Metrics;
+import dev.mruniverse.resourceholders.command.MainCommand;
 import dev.mruniverse.resourceholders.command.RPCommand;
 import dev.mruniverse.resourceholders.source.ResourcePack;
 import dev.mruniverse.resourceholders.source.listener.PlaceholderListeners;
@@ -57,11 +58,15 @@ public class ResourceHolders extends JavaPlugin implements SlimePlugin<JavaPlugi
 
         if (getConfigurationHandler(SlimeFile.RESOURCE_PACK).getStatus("resource-pack.custom-commands.enabled", true)) {
             for (String command : getConfigurationHandler(SlimeFile.RESOURCE_PACK).getStringList("resource-pack.custom-commands.commands")) {
-                getLoader().getCommands().register(
+                getCommands().register(
                         new RPCommand(this, command)
                 );
             }
         }
+
+        getCommands().register(
+                new MainCommand(this)
+        );
 
         this.listener = new PlaceholderListeners(this);
 
