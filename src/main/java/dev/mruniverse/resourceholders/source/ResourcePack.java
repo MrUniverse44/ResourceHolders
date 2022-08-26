@@ -15,11 +15,9 @@ public class ResourcePack {
     private final ResourceHolders plugin;
     private boolean PERMISSION_OPTION;
     private boolean PROTOCOL_OPTION;
-    private boolean INCLUDE_HASH;
     private String PERMISSION;
     private int MAX_PROTOCOL;
     private int MIN_PROTOCOL;
-    private byte[] BYTES;
     private String URL;
 
     public ResourcePack(ResourceHolders plugin) {
@@ -35,14 +33,11 @@ public class ResourcePack {
 
         PERMISSION_OPTION = settings.getStatus("resource-pack.install-conditions.permission.enabled", false);
         PROTOCOL_OPTION = settings.getStatus("resource-pack.install-conditions.protocol.enabled", true);
-        INCLUDE_HASH = settings.getStatus("resource-pack.include-hash.enabled", false);
 
         MIN_PROTOCOL = settings.getInt("resource-pack.install-conditions.protocol.min", 477);
         MAX_PROTOCOL = settings.getInt("resource-pack.install-conditions.protocol.max", -1);
 
         PERMISSION = settings.getString("resource-pack.install-conditions.permission.value", "resourceholder.install");
-
-        BYTES = settings.getString("resource-pack.include-hash.hash", "nothing here for now").getBytes();
 
         URL = settings.getString("resource-pack.url", "here the url");
     }
@@ -84,11 +79,7 @@ public class ResourcePack {
     }
 
     public void send(Player player) {
-        if (INCLUDE_HASH) {
-            player.setResourcePack(URL, BYTES);
-        } else {
-            player.setResourcePack(URL);
-        }
+        player.setResourcePack(URL);
     }
 
     public void verify(SlimeSource<?> sender) {
