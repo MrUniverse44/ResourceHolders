@@ -8,7 +8,7 @@ import dev.mruniverse.resourceholders.source.storage.PluginPlayer;
 import dev.mruniverse.slimelib.SlimePlatform;
 import dev.mruniverse.slimelib.SlimePlugin;
 import dev.mruniverse.slimelib.SlimePluginInformation;
-import dev.mruniverse.slimelib.file.input.InputManager;
+import dev.mruniverse.slimelib.file.input.spigot.SpigotInputManager;
 import dev.mruniverse.slimelib.loader.BaseSlimeLoader;
 import dev.mruniverse.slimelib.loader.DefaultSlimeLoader;
 import dev.mruniverse.slimelib.logs.SlimeLogger;
@@ -37,7 +37,7 @@ public class ResourceHolders extends JavaPlugin implements SlimePlugin<JavaPlugi
         );
         loader = new DefaultSlimeLoader<>(
                 this,
-                InputManager.getAutomatically()
+                new SpigotInputManager(this)
         );
         logs = SlimeLogger.createLogs(
                 getServerType(),
