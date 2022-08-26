@@ -7,7 +7,6 @@ import dev.mruniverse.resourceholders.source.listener.ResourcePackListener;
 import dev.mruniverse.slimelib.file.configuration.ConfigurationHandler;
 
 public class ResourcePackStorage {
-    private final ResourceHolders plugin;
 
     private String[] downloading;
 
@@ -20,7 +19,6 @@ public class ResourcePackStorage {
     private String[] failed;
 
     public ResourcePackStorage(ResourceHolders plugin) {
-        this.plugin = plugin;
 
         load(
                 plugin.getConfigurationHandler(SlimeFile.RESOURCE_PACK)
@@ -34,8 +32,6 @@ public class ResourcePackStorage {
 
     private void load(ConfigurationHandler settings) {
         hasMessages = settings.getBoolean("messages.toggle");
-
-        plugin.getLogs().info("Resource Pack system now is enabled");
 
         downloading = settings.getString(
                 "messages.downloading",
