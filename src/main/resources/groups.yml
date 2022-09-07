@@ -1,0 +1,15 @@
+#
+#  ██████████████████████████████████████████████████████████████████████████████████████████
+#  █▄─▄▄▀█▄─▄▄─█─▄▄▄▄█─▄▄─█▄─██─▄█▄─▄▄▀█─▄▄▄─█▄─▄▄─███─█─█─▄▄─█▄─▄███▄─▄▄▀█▄─▄▄─█▄─▄▄▀█─▄▄▄▄█
+#  ██─▄─▄██─▄█▀█▄▄▄▄─█─██─██─██─███─▄─▄█─███▀██─▄█▀███─▄─█─██─██─██▀██─██─██─▄█▀██─▄─▄█▄▄▄▄─█
+#  █▄▄█▄▄█▄▄▄▄▄█▄▄▄▄▄█▄▄▄▄██▄▄▄▄██▄▄█▄▄█▄▄▄▄▄█▄▄▄▄▄███▄█▄█▄▄▄▄█▄▄▄▄▄█▄▄▄▄██▄▄▄▄▄█▄▄█▄▄█▄▄▄▄▄█
+#
+# Created by JustJustin
+# version: 1.0.0-SNAPSHOT
+# Create ranks custom prefixes when the player have or not the resource pack installed
+# Placeholder: %resourceholders_rank%
+#
+groups:
+  example:
+    value: "&aResourcePackInstalled &8| &7Rank: Example &8| &f"
+    negative: "&cNoResourcePack &8| &7Rank: Example &8| &f"

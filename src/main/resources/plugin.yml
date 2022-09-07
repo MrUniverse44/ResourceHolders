@@ -3,6 +3,10 @@ version: '${project.version}'
 main: dev.mruniverse.resourceholders.ResourceHolders
 api-version: 1.13
 authors: [ JustJustin ]
+author: JustJustin
+softdepend:
+  - LuckPerms
+  - Vault
 depend:
   - PlaceholderAPI
   - ProtocolLib

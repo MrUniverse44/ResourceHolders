@@ -1,0 +1,21 @@
+#
+#  ██████████████████████████████████████████████████████████████████████████████████████████
+#  █▄─▄▄▀█▄─▄▄─█─▄▄▄▄█─▄▄─█▄─██─▄█▄─▄▄▀█─▄▄▄─█▄─▄▄─███─█─█─▄▄─█▄─▄███▄─▄▄▀█▄─▄▄─█▄─▄▄▀█─▄▄▄▄█
+#  ██─▄─▄██─▄█▀█▄▄▄▄─█─██─██─██─███─▄─▄█─███▀██─▄█▀███─▄─█─██─██─██▀██─██─██─▄█▀██─▄─▄█▄▄▄▄─█
+#  █▄▄█▄▄█▄▄▄▄▄█▄▄▄▄▄█▄▄▄▄██▄▄▄▄██▄▄█▄▄█▄▄▄▄▄█▄▄▄▄▄███▄█▄█▄▄▄▄█▄▄▄▄▄█▄▄▄▄██▄▄▄▄▄█▄▄█▄▄█▄▄▄▄▄█
+#
+# Created by JustJustin
+# version: 1.0.0-SNAPSHOT
+# Create ranks custom prefixes when the player have or not the resource pack installed
+# Placeholder: %resourceholders_rank%
+#
+groups:
+  use-primary-group: true
+  assign-groups-by-permissions: false
+  primary-group-finding-list:
+    - "Owner"
+    - "Developer"
+    - "Helper"
+    - "Streamer"
+    - "Vip"
+    - "User"

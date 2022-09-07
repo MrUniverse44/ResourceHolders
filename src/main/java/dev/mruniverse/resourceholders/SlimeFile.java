@@ -4,6 +4,8 @@ import dev.mruniverse.slimelib.SlimeFiles;
 import dev.mruniverse.slimelib.SlimePlatform;
 
 public enum SlimeFile implements SlimeFiles {
+    GROUPS("groups.yml", "groups", "groups.yml"),
+    GROUP_SETTINGS("settings.yml", "groups", "group_settings.yml"),
     PLACEHOLDERS("placeholders.yml"),
     RESOURCE_PACK("resource-pack.yml");
 

@@ -2,6 +2,7 @@ package dev.mruniverse.resourceholders.source.listener;
 
 import dev.mruniverse.resourceholders.ResourceHolders;
 import dev.mruniverse.resourceholders.SlimeFile;
+import dev.mruniverse.resourceholders.groups.Group;
 import dev.mruniverse.resourceholders.source.storage.PluginPlayer;
 import dev.mruniverse.slimelib.file.configuration.ConfigurationHandler;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
@@ -66,7 +67,17 @@ public class PlaceholderListeners extends PlaceholderExpansion {
         }
 
         PluginPlayer pluginPlayer = main.getPlayer(player);
-
+        if (params.equalsIgnoreCase("rank_name")) {
+            return main.getGroups().getGroup(player).getName();
+        }
+        if (params.equalsIgnoreCase("rank")) {
+            Group group = main.getGroups().getGroup(player);
+            if (pluginPlayer.isEnabled()) {
+                return group.getPrefix();
+            } else {
+                return group.getNegative();
+            }
+        }
         if (pluginPlayer.isEnabled()) {
             for (String key : configuration.getContent("placeholders", false)) {
                 if (params.equalsIgnoreCase(key)) {
