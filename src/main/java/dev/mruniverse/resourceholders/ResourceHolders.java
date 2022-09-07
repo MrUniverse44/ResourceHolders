@@ -190,6 +190,8 @@ public class ResourceHolders extends JavaPlugin implements SlimePlugin<JavaPlugi
 
         listener.update();
 
+        getGroups().getController().loadGroups();
+
         checkKeys();
     }
 }
