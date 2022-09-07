@@ -5,7 +5,7 @@
 #  █▄▄█▄▄█▄▄▄▄▄█▄▄▄▄▄█▄▄▄▄██▄▄▄▄██▄▄█▄▄█▄▄▄▄▄█▄▄▄▄▄███▄█▄█▄▄▄▄█▄▄▄▄▄█▄▄▄▄██▄▄▄▄▄█▄▄█▄▄█▄▄▄▄▄█
 #
 # Created by JustJustin
-# version: 1.0.0-SNAPSHOT
+# version: 1.0.1-SNAPSHOT
 # Create ranks custom prefixes when the player have or not the resource pack installed
 # Placeholder: %resourceholders_rank%
 #
